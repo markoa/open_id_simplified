@@ -155,7 +155,9 @@ module AuthenticatedSystem
     def handle_remember_cookie! new_cookie_flag
       return unless @current_user
       case
-      when valid_remember_cookie? then @current_user.refresh_token # keeping same expiry date
+      #TODO: See what is meant to be achieved with nonexisting
+      # User#refresh_token and implement it
+      #when valid_remember_cookie? then @current_user.refresh_token # keeping same expiry date
       when new_cookie_flag        then @current_user.remember_me 
       else                             @current_user.forget_me
       end
